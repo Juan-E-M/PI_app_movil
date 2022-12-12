@@ -18,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,33 +31,35 @@ class MainActivity : AppCompatActivity() {
             BuscarUsername()
         }
 
-        register.setOnClickListener{
-            startActivity(Intent(this,Register::class.java))
+        register.setOnClickListener {
+            startActivity(Intent(this, Register::class.java))
         }
 
         val navigation = findViewById<BottomNavigationView>(R.id.menu);
-        navigation?.setOnItemSelectedListener{
-            when(it.itemId) {
+        navigation?.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.action_calendar -> {
-                    startActivity(Intent(this,CalendarEvents::class.java))
+                    startActivity(Intent(this, CalendarEvents::class.java))
                 }
-                R.id.action_top10->{
-                    startActivity(Intent(this,TopTenAll::class.java))
+                R.id.action_top10 -> {
+                    startActivity(Intent(this, TopTenAll::class.java))
                 }
-                R.id.action_statics->{
-                    startActivity(Intent(this,Estadisticas::class.java))
+                R.id.action_statics -> {
+                    startActivity(Intent(this, Estadisticas::class.java))
                 }
             }
             false
         }
-    }fun BuscarUsername() {
+    }
+
+    fun BuscarUsername() {
         AsyncTask.execute {
 
             val username = txtUsuario.text.toString()
             val password = txtPassword.text.toString()
 
             val queue = Volley.newRequestQueue(this)
-            var url = getString(R.string.urlAPI) +"/api/usuarios/loginandroid"
+            var url = getString(R.string.urlAPI) + "/api/usuarios/loginandroid"
             val postRequest: StringRequest = object : StringRequest(
                 Request.Method.POST, url,
                 Response.Listener { response -> // response
@@ -65,7 +68,17 @@ class MainActivity : AppCompatActivity() {
                         "Bienvenido(a) $username",
                         Toast.LENGTH_LONG
                     ).show()
-                    startActivity(Intent(this,CalendarEvents::class.java))
+
+                    //CAMBIO DE ARTURO QUE NO FUNCA
+
+                    var res = JSONObject(response)
+                    var intent = Intent(this,CalendarEvents::class.java)
+                    intent.putExtra("user_id",res["id"].toString())
+                    intent.putExtra("date_joined",res["date_joined"].toString())
+                    startActivity(intent)
+                    //CAMBIO DE ARTURO QUE NO FUNCA
+
+                    //startActivity(Intent(this, CalendarEvents::class.java))
                 },
                 Response.ErrorListener { response ->// error
                     Toast.makeText(
@@ -87,6 +100,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
 
 }

@@ -18,67 +18,55 @@
         android:id="@+id/fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
+        android:padding="8dp"
         android:gravity="center"
         android:inputType="textEmailAddress"
         android:text="fecha"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppinsregular"/>
 
     <TextView
         android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
         android:gravity="center"
         android:inputType="textEmailAddress"
+        android:padding="8dp"
         android:text="evento1"
-        android:textSize="20sp" />
+        android:textSize="18dp"
+        android:fontFamily="@font/poppinsbold"
+        android:textColor="@color/letra"/>
 
     <TextView
         android:id="@+id/descripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="sans-serif"
+        android:padding="8dp"
         android:gravity="center"
         android:text="descripcion1"
-        android:textSize="16sp" />
+        android:textSize="14dp"
+        android:fontFamily="@font/poppinsregular"/>
 
     <TextView
         android:id="@+id/lugar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="sans-serif"
+        android:padding="8dp"
         android:gravity="center"
         android:text="lugar1"
-        android:textSize="16sp" />
+        android:textSize="14dp"
+        android:fontFamily="@font/poppinsregular"/>
 
     <TextView
         android:id="@+id/tesperamos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif"
+        android:padding="8dp"
         android:gravity="center"
         android:text="¡Te esperamos!"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:fontFamily="@font/poppinsbold"/>
 
 </LinearLayout>

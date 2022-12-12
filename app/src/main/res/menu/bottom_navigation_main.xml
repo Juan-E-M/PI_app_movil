@@ -7,17 +7,20 @@
         android:enabled="true"
         android:icon="@drawable/ic_calendar"
         android:title="CALENDARIO"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:fontFamily="@font/poppinsregular"/>
     <item
         android:id="@+id/action_top10"
         android:enabled="true"
         android:icon="@drawable/ic_top10"
         android:title="TOP 10"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:fontFamily="@font/poppinsregular"/>
     <item
         android:id="@+id/action_statics"
         android:enabled="true"
         android:icon="@drawable/ic_statics"
         android:title="ESTADÍSTICAS"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:fontFamily="@font/poppinsregular"/>
 </menu>
