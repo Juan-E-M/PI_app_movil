@@ -1,5 +1,6 @@
 package com.example.recicla
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
@@ -15,15 +16,37 @@ import kotlinx.android.synthetic.main.activity_listado_topten.*
 import org.json.JSONException
 
 class listadoTopten : AppCompatActivity() {
+
+    var user_id = ""
+    var date_joined =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_topten)
+
+        var parametros:Bundle ?=  intent.extras
+
+        if (parametros != null) {
+            user_id = parametros.getString("user_id").toString()
+            date_joined = parametros.getString("date_joined").toString()
+        }
+
         var llenarLista = ArrayList<Elementos>()
         llenarLista.add(Elementos(BitmapFactory.decodeResource(resources,R.drawable.primero),"...TOP 10...",100000,BitmapFactory.decodeResource(resources,R.drawable.primero)))
+
         val adapter = AdaptadorElementos(llenarLista)
         lista_tt.adapter = adapter
         cargarLista()
     }
+
+    override fun onDestroy() {
+        var intent = Intent(this,CalendarEvents::class.java)
+        intent.putExtra("user_id",user_id)
+        intent.putExtra("date_joined",date_joined)
+        startActivity(intent)
+        super.onDestroy()
+    }
+
     fun cargarLista() {
         lista_tt.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         lista_tt.layoutManager = LinearLayoutManager(this)

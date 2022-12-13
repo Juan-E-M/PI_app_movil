@@ -46,7 +46,11 @@ class CalendarEvents : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 com.example.recicla.R.id.action_top10->{
-                    startActivity(Intent(this,listadoTopten::class.java))
+                    //startActivity(Intent(this,Estadisticas::class.java))
+                    var intent = Intent(this,listadoTopten::class.java)
+                    intent.putExtra("user_id",user_id)
+                    intent.putExtra("date_joined",date_joined)
+                    startActivity(intent)
                     return@setOnItemSelectedListener true
                 }
                 com.example.recicla.R.id.action_statics->{

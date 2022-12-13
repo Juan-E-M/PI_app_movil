@@ -1,5 +1,4 @@
 package com.example.recicla
-
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Build
@@ -25,7 +24,6 @@ import kotlinx.android.synthetic.main.activity_evento_detalle.*
 import org.json.JSONException
 import java.time.Instant
 import java.time.ZonedDateTime
-
 var porcen = 0
 var porcentajePlastico: MutableList<Int> = mutableListOf()
 var porcentajeVidrio: MutableList<Int> = mutableListOf()
@@ -75,7 +73,11 @@ class Estadisticas : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.action_top10->{
-                    startActivity(Intent(this,listadoTopten::class.java))
+                    //startActivity(Intent(this,Estadisticas::class.java))
+                    var intent = Intent(this,listadoTopten::class.java)
+                    intent.putExtra("user_id",user_id)
+                    intent.putExtra("date_joined",date_joined)
+                    startActivity(intent)
                     return@setOnItemSelectedListener true
                 }
                 R.id.action_statics->{
